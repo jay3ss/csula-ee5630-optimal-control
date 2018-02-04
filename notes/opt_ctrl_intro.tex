@@ -1,17 +1,32 @@
-\documentclass[english, course]{Notes}
+\documentclass{article}
+\usepackage{url}
+\usepackage{amsmath}
 
-\title{Optimal Control - CSULA EE5630}
-\subject{Introduction to Optimal Control}
+\title{Optimal Control}
 \author{Joshua Saunders}
-\email{jsaunde3@calstatela.edu}
-\speaker{Dr. Shaurya Agarwal}
-\date{22}{1}{2018}
-\dateend{27}{5}{2018}
-\place{CSULA}
-
+\date{January 2018}
 \begin{document}
 
-Random citation \cite{kirkdover}
+\maketitle
+
+\section{Introduction}
+\textbf{Optimal control} deals with finding control laws for a system that meet 
+some criteria of optimality \cite{wiki:1}. In classical controls we were 
+concerned with the \textit{instaneous} control (having an output reach a
+certain reference or setpoint) optimal control concerns itself with the
+process over the \textit{entire} period that the process takes place.
+
+\subsection{State Space Review}
+
+The state space representation of a linear time-invariant system has the 
+following form:
+
+\begin{align}     
+    \dot{X}(t) &= A(t) \, X(t) \, + \, B(t) \, U(t) \label{eq:state_diff_eq}\\
+    Y(t) &= C(t) \, X(t) \, + \, D(t) \, U(t) \label{eq:state_output}
+\end{align}.
+
+Equations \ref{eq:state_diff_eq} and \ref{eq:state_output} 
 
 \bibliography{bib}
 \bibliographystyle{ieeetr}
