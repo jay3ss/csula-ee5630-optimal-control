@@ -49,7 +49,7 @@ The states for the mixing process from \textbf{Problem 1-6} are given by
 \begin{equation}
 \dot{v}_1 (t) 
 \begin{dcases}
-    m(t) - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \geq h_2(t) \\
+    m(t) - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \leq h_2(t) \\
     m(t) + \ddfrac{v_2(t) \, k}{\alpha _2 }[h_2(t) \, - \, h_1(t)],  \, & \text{if } h_2(t) > h_1(t) 
 \end{dcases}
 \end{equation}
@@ -59,7 +59,7 @@ and
 \begin{equation}
 \dot{v}_2 (t) 
 \begin{dcases}
-    - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \geq h_2(t) \\ 
+    - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \leq h_2(t) \\ 
       \ddfrac{v_2(t) \, k}{\alpha _2 }[h_2(t) \, - \, h_1(t)],  \, & \text{if } h_2(t) > h_1(t). 
 \end{dcases}
 \end{equation}
@@ -74,7 +74,7 @@ as close to $M$ ft\textsuperscript{3} as possible. Therefore, a performace measu
 \end{equation}
 
 \noindent
-where $t_0$ and $t_f$ are the initial and final times, respectively. Also, $t_f \, - \, t_0 = 1$ day.
+where $t_0$ and $t_f$ are the initial and final times, respectively, and $t_f \, - \, t_0 = 1$ day.
 
 $\\$
 
@@ -83,11 +83,11 @@ $\\$
 A set of physically realistic state and control constraints are
 
 \begin{align}
-    0 \, & \geq \, h_1 \, \geq H_1, \\
-    0 \, & \geq \, h_2 \, \geq H_2, \\
-    0 \, & \geq \, w_1 (t) \, \geq W_1, \\
-    0 \, & \geq \, w_2 (t) \, \geq W_2, \\
-    0 \, & \geq \, m (t) \, \geq M
+    0 \, & \leq \, h_1 (t) \, \leq H_1, \\
+    0 \, & \leq \, h_2 (t) \, \leq H_2, \\
+    0 \, & \leq \, w_1 (t) \, \leq W_1, \\
+    0 \, & \leq \, w_2 (t) \, \leq W_2, \\
+    0 \, & \leq \, m (t) \, \leq M
 \end{align}
 
 where 
@@ -97,13 +97,13 @@ where
     \item $W_1$ and $W_2$ are the maximum rates of water entering tanks 1 and 2, respectively
 \end{itemize}
 
-
+\newpage
 \begin{problem}{2-2}
 \end{problem}
  
 This type of problem is classified as a \textit{terminal control problem} in which a parameter
-is being \textit{maximized}.
-
+is being \textit{maximized} in which the final total volume of dye in tank 2 is to be as close
+to $N$ ft\textsuperscript{3} as possible.
 
 $$\\$$
 \noindent \textbf{a)} \newline
@@ -119,8 +119,28 @@ A performance measure that can be used is
 $$\\$$
 \noindent \textbf{b)} \newline
 
-Some 
+A set of physically realizable state and control constraints are
 
+\begin{align}
+    0 \, \leq \, h_1 (t) \, & \leq H_1, \\
+    0 \, \leq \, h_2 (t) \, & \leq H_2, \\
+    0 \, \leq \, w_1 (t) \, & \leq W_1, \\
+    0 \, \leq \, w_2 (t) \, & \leq W_2, \\
+    \int_{t_0}^{t_f} m (t) \, dt \, & \leq N 
+\end{align}
+
+\noindent where 
+
+\begin{itemize}
+    \item $H_1$ and $H_2$ are the maximum heights of tanks 1 and 2, respectively
+    \item $W_1$ and $W_2$ are the maximum rates of water entering tanks 1 and 2, respectively
+    \item where $t_0$ and $t_f$ are the initial and final times, respectively, and $t_f \, - \, t_0 = 1$ day
+\end{itemize}
+
+\newpage
+\begin{problem}{2-3}
+
+\end{problem}
 
 % --------------------------------------------------------------
 %     You don't have to mess with anything below this line.
