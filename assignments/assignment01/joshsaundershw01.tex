@@ -7,7 +7,8 @@
  
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
- 
+\usepackage{mathtools}
+
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
  
@@ -23,6 +24,9 @@
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 \newenvironment{corollary}[2][Corollary]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+% better formatting of large fractions
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
  
 \begin{document}
  
@@ -36,31 +40,88 @@
  
 \maketitle
  
-\begin{theorem}{x.yz} %You can use theorem, exercise, problem, or question here.  Modify x.yz to be whatever number you are proving
-Delete this text and write theorem statement here.
-\end{theorem}
+\begin{problem}{2-1} %You can use theorem, exercise, problem, or question here.  Modify x.yz to be whatever number you are proving
+%Delete this text and write theorem statement here.
+\end{problem}
  
-\begin{proof}
-Blah, blah, blah.  Here is an example of the \texttt{align} environment:
-%Note 1: The * tells LaTeX not to number the lines.  If you remove the *, be sure to remove it below, too.
-%Note 2: Inside the align environment, you do not want to use $-signs.  The reason for this is that this is already a math environment. This is why we have to include \text{} around any text inside the align environment.
-\begin{align*}
-\sum_{i=1}^{k+1}i & = \left(\sum_{i=1}^{k}i\right) +(k+1)\\ 
-& = \frac{k(k+1)}{2}+k+1 & (\text{by inductive hypothesis})\\
-& = \frac{k(k+1)+2(k+1)}{2}\\
-& = \frac{(k+1)(k+2)}{2}\\
-& = \frac{(k+1)((k+1)+1)}{2}.
-\end{align*}
-\end{proof}
+The states for the mixing process from \textbf{Problem 1-6} are given by
+
+\begin{equation}
+\dot{v}_1 (t) 
+\begin{dcases}
+    m(t) - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \geq h_2(t) \\
+    m(t) + \ddfrac{v_2(t) \, k}{\alpha _2 }[h_2(t) \, - \, h_1(t)],  \, & \text{if } h_2(t) > h_1(t) 
+\end{dcases}
+\end{equation}
+
+and
+
+\begin{equation}
+\dot{v}_2 (t) 
+\begin{dcases}
+    - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \geq h_2(t) \\ 
+      \ddfrac{v_2(t) \, k}{\alpha _2 }[h_2(t) \, - \, h_1(t)],  \, & \text{if } h_2(t) > h_1(t). 
+\end{dcases}
+\end{equation}
+
+\noindent \textbf{a)} \newline
+
+The type of problem defined here is a \textit{tracking problem}. Here, the $v_2 (t)$ state is to be kept
+as close to $M$ ft\textsuperscript{3} as possible. Therefore, a performace measure that can be used is
+
+\begin{equation}
+    J = \int_{t_0}^{t_f} [v_2 (t) \, - \, M]^2 dt
+\end{equation}
+
+\noindent
+where $t_0$ and $t_f$ are the initial and final times, respectively. Also, $t_f \, - \, t_0 = 1$ day.
+
+$\\$
+
+\noindent \textbf{b)} \newline
+
+A set of physically realistic state and control constraints are
+
+\begin{align}
+    0 \, & \geq \, h_1 \, \geq H_1, \\
+    0 \, & \geq \, h_2 \, \geq H_2, \\
+    0 \, & \geq \, w_1 (t) \, \geq W_1, \\
+    0 \, & \geq \, w_2 (t) \, \geq W_2, \\
+    0 \, & \geq \, m (t) \, \geq M
+\end{align}
+
+where 
+
+\begin{itemize}
+    \item $H_1$ and $H_2$ are the maximum heights of tanks 1 and 2, respectively
+    \item $W_1$ and $W_2$ are the maximum rates of water entering tanks 1 and 2, respectively
+\end{itemize}
+
+
+\begin{problem}{2-2}
+\end{problem}
  
-\begin{theorem}{x.yz}
-Let $n\in \Z$.  Then yada yada.
-\end{theorem}
- 
-\begin{proof}
-Blah, blah, blah.  I'm so smart.
-\end{proof}
- 
+This type of problem is classified as a \textit{terminal control problem} in which a parameter
+is being \textit{maximized}.
+
+
+$$\\$$
+\noindent \textbf{a)} \newline
+
+A performance measure that can be used is
+
+\begin{equation}
+    J = - v_2 (t_f) \,.
+\end{equation}
+
+\noindent A minus sign is being used because the quantity $v_2(t_f)$ is being \textit{maximized}.
+
+$$\\$$
+\noindent \textbf{b)} \newline
+
+Some 
+
+
 % --------------------------------------------------------------
 %     You don't have to mess with anything below this line.
 % --------------------------------------------------------------
