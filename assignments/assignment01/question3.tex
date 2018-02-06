@@ -1,0 +1,41 @@
+%---------------
+% Question 3
+%---------------
+\begin{problem}{2-2}
+\end{problem}
+
+This type of problem is classified as a \textit{terminal control problem} in which a parameter
+is being \textit{maximized} in which the final total volume of dye in tank 2 is to be as close
+to $N$ ft\textsuperscript{3} as possible.
+
+$$\\$$
+\noindent \textbf{a)} \newline
+
+A performance measure that can be used is
+
+\begin{equation}
+    J = - v_2 (t_f) \,.
+\end{equation}
+
+\noindent A minus sign is being used because the quantity $v_2(t_f)$ is being \textit{maximized}.
+
+$$\\$$
+\noindent \textbf{b)} \newline
+
+A set of physically realizable state and control constraints are
+
+\begin{align}
+    0 \, \leq \, h_1 (t) \, & \leq H_1, \\
+    0 \, \leq \, h_2 (t) \, & \leq H_2, \\
+    0 \, \leq \, w_1 (t) \, & \leq W_1, \\
+    0 \, \leq \, w_2 (t) \, & \leq W_2, \\
+    \int_{t_0}^{t_f} m (t) \, dt \, & \leq N
+\end{align}
+
+\noindent where
+
+\begin{itemize}
+    \item $H_1$ and $H_2$ are the maximum heights of tanks 1 and 2, respectively
+    \item $W_1$ and $W_2$ are the maximum rates of water entering tanks 1 and 2, respectively
+    \item where $t_0$ and $t_f$ are the initial and final times, respectively, and $t_f \, - \, t_0 = 1$ day
+\end{itemize}

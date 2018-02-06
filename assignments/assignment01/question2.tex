@@ -1,0 +1,60 @@
+%---------------
+% Question 2
+%---------------
+
+\begin{problem}{2-1} %You can use theorem, exercise, problem, or question here.  Modify x.yz to be whatever number you are proving
+%Delete this text and write theorem statement here.
+\end{problem}
+
+The states for the mixing process from \textbf{Problem 1-6} are given by
+
+\begin{equation}
+\dot{v}_1 (t)
+\begin{dcases}
+    m(t) - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \leq h_2(t) \\
+    m(t) + \ddfrac{v_2(t) \, k}{\alpha _2 }[h_2(t) \, - \, h_1(t)],  \, & \text{if } h_2(t) > h_1(t)
+\end{dcases}
+\end{equation}
+
+and
+
+\begin{equation}
+\dot{v}_2 (t)
+\begin{dcases}
+    - \ddfrac{v_1(t) \, k}{\alpha _1 }[h_1(t) \, - \, h_2(t)],  \, & \text{if } h_1(t) \leq h_2(t) \\
+      \ddfrac{v_2(t) \, k}{\alpha _2 }[h_2(t) \, - \, h_1(t)],  \, & \text{if } h_2(t) > h_1(t).
+\end{dcases}
+\end{equation}
+
+\noindent \textbf{a)} \newline
+
+The type of problem defined here is a \textit{tracking problem}. Here, the $v_2 (t)$ state is to be kept
+as close to $M$ ft\textsuperscript{3} as possible. Therefore, a performace measure that can be used is
+
+\begin{equation}
+    J = \int_{t_0}^{t_f} [v_2 (t) \, - \, M]^2 dt
+\end{equation}
+
+\noindent
+where $t_0$ and $t_f$ are the initial and final times, respectively, and $t_f \, - \, t_0 = 1$ day.
+
+$\\$
+
+\noindent \textbf{b)} \newline
+
+A set of physically realistic state and control constraints are
+
+\begin{align}
+    0 \, & \leq \, h_1 (t) \, \leq H_1, \\
+    0 \, & \leq \, h_2 (t) \, \leq H_2, \\
+    0 \, & \leq \, w_1 (t) \, \leq W_1, \\
+    0 \, & \leq \, w_2 (t) \, \leq W_2, \\
+    0 \, & \leq \, m (t) \, \leq M
+\end{align}
+
+where
+
+\begin{itemize}
+    \item $H_1$ and $H_2$ are the maximum heights of tanks 1 and 2, respectively
+    \item $W_1$ and $W_2$ are the maximum rates of water entering tanks 1 and 2, respectively
+\end{itemize}
