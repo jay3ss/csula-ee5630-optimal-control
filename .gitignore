@@ -227,3 +227,6 @@ TSWLatexianTemp*
 
 # ignore vim swap files
 *.swp
+
+# ignore temp files
+*.~
