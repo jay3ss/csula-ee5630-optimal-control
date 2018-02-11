@@ -230,3 +230,6 @@ TSWLatexianTemp*
 
 # ignore temp files
 *~
+
+# ignore .ini files set by gedit
+*.ini
