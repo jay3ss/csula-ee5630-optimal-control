@@ -13,15 +13,23 @@ desired attitude within $30$ seconds.
 The \textit{state constraints} are
 
 \begin{equation}\label{eq:sc_att_15}
-    \ang{14.9} \leq \theta(t_f) \leq \ang{15.1}
+    \ang{14.9} \leq x_1(t_f) \leq \ang{15.1}
 \end{equation}
 
 The \textit{control constraints} are
 
 \begin{equation}\label{eq:sc_att_15}
-    u(t) \leq U_{max}
+   -U_{max} \leq u(t) \leq U_{max}
 \end{equation}
 
 \noindent where $U_{max}$ is the maximum thrust.
+
+\noindent \textbf{b)}
+
+An appropriate control measure is
+
+\begin{equation}
+  J = \int_{t_0}^{t_f} u^2(t) dt
+\end{equation}
 
 
