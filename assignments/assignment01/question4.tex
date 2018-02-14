@@ -4,8 +4,8 @@
 \begin{problem}{2-4}
 \end{problem}
 
-This problem is the same as \textbf{Example 2.2-1} except that the desired 
-attitude is now $\ang{15} \pm \ang{0.1}$ and the spacecraft should reach its 
+This problem is the same as \textbf{Example 2.2-1} except that the desired
+attitude is now $\ang{15} \pm \ang{0.1}$ and the spacecraft should reach its
 desired attitude within $30$ seconds.
 
 \noindent \textbf{a)}
@@ -13,13 +13,13 @@ desired attitude within $30$ seconds.
 The \textit{state constraints} are
 
 \begin{equation}\label{eq:sc_att_15}
-    \ang{14.9} \leq x_1(t_f) \leq \ang{15.1}
+    \ang{14.9} \leq x_1(t_f) \leq \ang{15.1} \nonumber
 \end{equation}
 
 The \textit{control constraints} are
 
 \begin{equation}\label{eq:sc_att_15}
-   -U_{max} \leq u(t) \leq U_{max}
+   -U_{max} \leq u(t) \leq U_{max} \nonumber
 \end{equation}
 
 \noindent where $U_{max}$ is the maximum thrust.
@@ -29,7 +29,5 @@ The \textit{control constraints} are
 An appropriate control measure is
 
 \begin{equation}
-  J = \int_{t_0}^{t_f} u^2(t) dt
+  J = \int_{t_0}^{t_f} u^2(t) dt \nonumber
 \end{equation}
-
-
