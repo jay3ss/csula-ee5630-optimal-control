@@ -83,7 +83,50 @@ Question 1
 \end_layout
 
 \begin_layout Standard
-blah
+Given the system dynamics 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{x}_{1}(t)= & x_{2}(t)\\
+\dot{x}_{2}(t)= & -x_{1}(t)-x_{2}(t)+u(t)
+\end{align*}
+
+\end_inset
+
+and the cost function as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J=\intop_{0}^{T}\frac{1}{2}[q_{1}x_{1}^{2}(t)+q_{2}x_{2}^{2}(t)+u^{2}(t)]dt;\quad q_{1},q_{2}>0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Find 
+\begin_inset Formula $U^{*}(t)$
+\end_inset
+
+ expressed as a function of 
+\begin_inset Formula $X(t)$
+\end_inset
+
+, 
+\begin_inset Formula $t$
+\end_inset
+
+, and 
+\begin_inset Formula $J_{X}^{*}$
+\end_inset
+
+ for the given system.
 \end_layout
 
 \begin_layout Section*
@@ -91,7 +134,45 @@ Question 2
 \end_layout
 
 \begin_layout Standard
-blah
+A system has the following first order linear dynamics 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{x}(t)=−10x(t)+u(t)
+\]
+
+\end_inset
+
+which needs to be controlled while minimizing the following cost function:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J=\frac{1}{2}x^{2}(T)+\intop_{0}^{T}[\frac{1}{4}x^{2}(t)+\frac{1}{2}u^{2}(t)]dt;
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The admissible state and control trajectories are not constrained by any
+ boundaries.
+ Find the optimal control law using HJB equation for 
+\begin_inset Formula $T=5$
+\end_inset
+
+ and assuming the solution of HJB PDE to be of the quadratic form.
+ You can leave your answers in terms for 
+\begin_inset Formula $K(t)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section*
@@ -99,7 +180,50 @@ Question 3
 \end_layout
 
 \begin_layout Standard
-blah
+The dynamics of a nonlinear scalar system is: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{x}(t)=x(t)u(t);\quad x(0)=1;
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the cost function to be minimized is
+\begin_inset Formula 
+\[
+J=x^{2}(1)+\int_{0}^{1}[x(t)u(t)]^{2}dt;
+\]
+
+\end_inset
+
+ Find the optimal feedback solution by solving the corresponding HJB equation.
+ [Hint: First, find the HJB partial differential equation in terms of 
+\begin_inset Formula $J_{X}$
+\end_inset
+
+, 
+\begin_inset Formula $J_{t}$
+\end_inset
+
+.
+ Then using boundary conditions show that the PDE admits a solution that
+ is quadratic in 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Finally integrate the ODE in 
+\begin_inset Formula $K(t)$
+\end_inset
+
+ to get the feedback solution.]
 \end_layout
 
 \begin_layout Section*
@@ -107,7 +231,159 @@ Question 4
 \end_layout
 
 \begin_layout Standard
-blah
+Given the system dynamics of a plant: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+x_{1}(t)= & x_{2}(t)\\
+x_{2}(t)= & \text{−}x1(t)\text{−}2x_{2}(t)+u(t)
+\end{align*}
+
+\end_inset
+
+and the cost function to minimize is 
+\begin_inset Formula 
+\[
+J=10x_{1}^{2}(T)+\int_{0}^{T}\frac{1}{2}[x{}_{1}^{2}(t)+2x_{2}^{2}(t)+u^{2}(t)]dt
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ Final time 
+\begin_inset Formula $T=10$
+\end_inset
+
+ and the admissible state and control trajectories are not constrained by
+ any boundaries.
+ Find the optimal control law by solving the Riccati Equation numerically.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+a)
+\end_layout
+
+\end_inset
+
+Identify 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+b)
+\end_layout
+
+\end_inset
+
+Find and plot 
+\begin_inset Formula $K(t)$
+\end_inset
+
+ using Riccati Equation 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+c)
+\end_layout
+
+\end_inset
+
+Find and plot optimal control law 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+d)
+\end_layout
+
+\end_inset
+
+Plot the trajectories of states 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ using control in part c) (Hint: Identify 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $R$
+\end_inset
+
+, 
+\begin_inset Formula $H$
+\end_inset
+
+ etc and then use 
+\begin_inset Formula $ODE45$
+\end_inset
+
+ command in matlab to solve the ODE in 
+\begin_inset Formula $K(t)$
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Section*
@@ -115,15 +391,246 @@ Question 5
 \end_layout
 
 \begin_layout Standard
-blah
+Derive the Hamilton-Jacobi-Bellman partial differential equation.
 \end_layout
 
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Enumerate
+First, the problem must be formulated
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+System dynamics: 
+\begin_inset Formula $\dot{X}(t)=a(X(t),U(t),t)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Cost function: 
+\begin_inset Formula $J=h(X(t_{f}),t_{f})+{\displaystyle {\displaystyle \int}_{t_{0}}^{t_{f}}}g(X(t),U(t),t)dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Define the state and control constraints
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Now, consider a more general cost function (i.e, a 
+\emph on
+value function
+\emph default
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $J(X(t),t,\underset{t\leq\tau\leq t_{f}}{{U(\tau)}})=h(X(t_{f}),t_{f})+{\displaystyle \int}_{t}^{t_{f}}g(X(\tau),U(\tau),\tau)d\tau\newline$
+\end_inset
+
+ for 
+\begin_inset Formula $t\leq\tau\leq t_{f}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Find the minimum cost function for all admissible 
+\begin_inset Formula $X(t)$
+\end_inset
+
+ and for all 
+\begin_inset Formula $t\leq\tau\leq t_{f}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $J^{*}(X(t),t)=\underset{\underset{t\leq\tau\leq t_{f}}{U(\tau)}}{\min}\{{\displaystyle \int_{t}^{t_{f}}}g(X(\tau),U(\tau),\tau)d\tau+h(X(t_{f}),\,t_{f})\}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Subdivide the interval
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $J^{*}(X(t),t)=\underset{\underset{t\leq\tau\leq t_{f}}{U(\tau)}}{\min}\{{\displaystyle \int_{t}^{t+\Delta t}}g\,d\tau+{\displaystyle \int_{t+\Delta t}^{t_{f}}}g\,d\tau+h\}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Use the principle of optimality
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $J^{*}(X(t),t)=\underset{\underset{t\leq\tau\leq t_{f}}{U(\tau)}}{\min}\{{\displaystyle \int_{t}^{t+\Delta t}}g\,d\tau+J^{*}(X(t+\Delta t),\,t+\Delta t)\}\newline$
+\end_inset
+
+where 
+\begin_inset Formula $J^{*}(X(t+\Delta t),\,t+\Delta t)$
+\end_inset
+
+ is the minimum cost of the process for the time interval 
+\begin_inset Formula $t+\Delta t\leq\tau\leq t_{f}$
+\end_inset
+
+ with initial state 
+\begin_inset Formula $X(t+\Delta t)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Expand 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $J^{*}(X(t+\Delta t),\,t+\Delta t)$
+\end_inset
+
+ in a Taylor series about the point 
+\begin_inset Formula $(x(t),t)$
+\end_inset
+
+ (assuming that the second partial derivatives of 
+\begin_inset Formula $J^{*}$
+\end_inset
+
+ exist and are bounded)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\paragraph_spacing onehalf
+\noindent
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{align*}
+J^{*}(X(t),t) & =\underset{\underset{t\leq\tau\leq t_{f}}{U(\tau)}}{\min}\{{\displaystyle \int_{t}^{t+\Delta t}}g\,d\tau+J^{*}(X(t),\,t)+[\frac{\partial J^{*}}{\partial t}(X(t),t)]\Delta t\\
+ & +[\frac{\partial J^{*}}{\partial X}(X(t),t)]^{T}[X(t+\Delta t)-X(t)]+\mathcal{O}\}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ is higher order terms.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For small 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+J^{*}(X(t),t)=\underset{U(t)}{\min} & \{g(X(t),U(t),t)\Delta t+J^{*}(X(t),t)\\
+ & +J^{*}(X(t),t)\Delta t+J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\Delta t\\
+ & +o(\Delta t)\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Section*
 Question 6
 \end_layout
 
 \begin_layout Standard
-blah
+Write a short note on LQR problem and derive the Riccati equation for LQR
+ problem.
 \end_layout
 
 \end_body
