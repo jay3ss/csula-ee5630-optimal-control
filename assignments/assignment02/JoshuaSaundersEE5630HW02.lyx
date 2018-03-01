@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\usepackage{matlab-prettifier}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -27,9 +30,10 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -53,6 +57,8 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1in
+\rightmargin 1in
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -61,6 +67,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\listings_params "style={Matlab-editor}"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -318,10 +325,10 @@ J_{x}^{*}= & k(t)\,x(t)
 \begin_layout Enumerate
 \begin_inset Formula 
 \begin{align}
-0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber\\
-=\, & J_{t}^{*}+\frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x\nonumber\\
-=\, & \frac{1}{2}\dot{k}\,x^{2}+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber\\
-= & \,\frac{1}{2}\dot{k}\,x^{2}+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber\\
+0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber \\
+=\, & J_{t}^{*}+\frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x\nonumber \\
+=\, & \frac{1}{2}\dot{k}\,x^{2}+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber \\
+= & \,\frac{1}{2}\dot{k}\,x^{2}+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber \\
 = & \,\dot{k}+\frac{1}{2}-k^{2}-20k\label{eq:question2_ric_final}
 \end{align}
 
@@ -504,10 +511,10 @@ J_{x}^{*}= & k(t)\,x(t)
 \begin_layout Enumerate
 \begin_inset Formula 
 \begin{align}
-0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber\\
-=\, & J_{t}^{*}+\frac{1}{2}J_{x}^{*2}\nonumber\\
-=\, & \frac{1}{2}\dot{k}\,x^{2}+\frac{1}{2}\left(k\,x\right)^{2}\nonumber\\
-= & \,\frac{1}{2}\dot{k}\,x^{2}+\frac{1}{2}k^{2}\,x^{2}\nonumber\\
+0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber \\
+=\, & J_{t}^{*}+\frac{1}{2}J_{x}^{*2}\nonumber \\
+=\, & \frac{1}{2}\dot{k}\,x^{2}+\frac{1}{2}\left(k\,x\right)^{2}\nonumber \\
+= & \,\frac{1}{2}\dot{k}\,x^{2}+\frac{1}{2}k^{2}\,x^{2}\nonumber \\
 = & \,\dot{k}\,+k^{2}\label{eq:question3_ric_final}
 \end{align}
 
@@ -728,6 +735,34 @@ b)
 \end_layout
 
 \begin_layout Standard
+To use MATLAB's 
+\family typewriter
+ode()
+\family default
+ function, a function for the ODE that we wish to solve must first be written,
+ as shown in Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "q4_riccati_ml"
+
+\end_inset
+
+.
+ As Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "q4_matlab_script"
+
+\end_inset
+
+ shows, the 
+\family typewriter
+ode()
+\family default
+ function requires this ODE function as an input.
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "code/Question4.m"
@@ -739,16 +774,127 @@ lstparams "caption={Script to solve the Riccati equation using the ODE45 solver}
 \end_layout
 
 \begin_layout Standard
-\noindent
-\align center
-\begin_inset Graphics
-	filename question4kplot.eps
-	scale 40
-	rotateOrigin center
+The API for MATLAB's 
+\family typewriter
+ode()
+\family default
+ function requires that the ODE function that is being solved accepts a
+ column vector as a parameter and returns a column vector as well.
+ This is why 
+\family typewriter
+reshape()
+\family default
+ is used at the beginning of the 
+\family typewriter
+riccati()
+\family default
+ function.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/riccati.m"
+lstparams "caption={Function to calculate the Riccati equation at one time step},label={q4_riccati_ml}"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centerline{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename question4kplot.eps
+	scale 50
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plot of 
+\begin_inset Formula $K\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+c) and d)
+\end_layout
+
+\begin_layout Standard
+The remaining portions of this problem were not completed due to time constraint
+s.
 \end_layout
 
 \begin_layout Section*
@@ -1009,7 +1155,8 @@ Remove
 \begin_layout Enumerate
 \begin_inset Formula 
 \begin{align*}
-0= & J_{t}^{*}(X(t),t)\Delta t+\underset{U(t)}{\min}\{g(X(t),U(t),t)\Delta t+J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\Delta t+\mathcal{O}(\Delta t)\}
+0=\, & J_{t}^{*}(X(t),t)\Delta t+\underset{U(t)}{\min}\{g(X(t),U(t),t)\Delta t\\
++\, & J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\Delta t+\mathcal{O}(\Delta t)\}
 \end{align*}
 
 \end_inset
@@ -1083,8 +1230,365 @@ Solution
 \end_layout
 
 \begin_layout Standard
-bbb
+An LQR problem, such as Questions 1 and 2, are problems such that the plant
+ dynamics are linear and the cost function is quadratic.
+ The plant dynamics can be described as in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lin_plant_dyn"
+
+\end_inset
+
+ and the cost function to be minimized given in Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lqr_cost_func"
+
+\end_inset
+
+.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\dot{X}\left(t\right)= & A\left(t\right)X\left(t\right)+B\left(t\right)U\left(t\right)\label{eq:lin_plant_dyn}\\
+J= & \frac{1}{2}X^{\top}\left(t_{f}\right)HX\left(t_{f}\right)+\int_{t_{0}}^{t_{f}}\frac{1}{2}\left[X^{\top}\left(t\right)Q\left(t\right)X\left(t\right)+U^{\top}\left(t\right)R\left(t\right)U\left(t\right)\right]dt\label{eq:lqr_cost_func}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ are real, symmetric positive semi-definite matrices, 
+\begin_inset Formula $R$
+\end_inset
+
+ is a real, symmetric positive definite matrix, and 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{f}$
+\end_inset
+
+ are the initial and final times, respectively, and are specified.
+ The control and state trajectories 
+\begin_inset Formula $U\left(t\right)$
+\end_inset
+
+and 
+\begin_inset Formula $X\left(t\right)$
+\end_inset
+
+ are not constrained by any boundaries.
+\end_layout
+
+\begin_layout Enumerate
+Form the Hamiltonian
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+\mathscr{H}\left(X\left(t\right),U\left(t\right),J_{X}^{*},t\right) & =\frac{1}{2}\left[X^{\top}\left(t\right)Q\left(t\right)X\left(t\right)+U^{\top}\left(t\right)R\left(t\right)U\left(t\right)\right]\nonumber\label{eq:lqr_hjb}\\
+ & +J_{t}^{*}\left(X\left(t\right),t\right)\cdot\left[A\left(t\right)X\left(t\right)+B\left(t\right)U\left(t\right)\right]
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Minimize the Hamiltonian 
+\begin_inset Formula $\left(\frac{\partial\mathscr{H}}{\partial u}=0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+\frac{\partial\mathscr{H}}{\partial u}\left(X\left(t\right),U\left(t\right),J_{X}^{*},t\right) & =R\left(t\right)U\left(t\right)+B^{\top}\left(t\right)J_{X}^{*}\left(X\left(t\right),t\right)\label{eq:dh_du}\\
+ & =0\nonumber
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Check that Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dh_du"
+
+\end_inset
+
+ really is a minimum 
+\begin_inset Formula $\left(\frac{\partial^{2}\mathscr{H}}{\partial u^{2}}>0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial^{2}\mathscr{H}}{\partial u^{2}} & =R\left(t\right)>0
+\end{align*}
+
+\end_inset
+
+ because 
+\begin_inset Formula $R$
+\end_inset
+
+ is real, positive definite
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Because 
+\begin_inset Formula $\mathscr{H}$
+\end_inset
+
+ is a quadratic form in 
+\begin_inset Formula $U\left(t\right)$
+\end_inset
+
+, the control trajectory that minimizes Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dh_du"
+
+\end_inset
+
+ is a global minimum.
+ By solving Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dh_du"
+
+\end_inset
+
+ for 
+\begin_inset Formula $U^{*}\left(t\right)$
+\end_inset
+
+we get
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+U^{*}\left(t\right) & =-R^{-1}\left(t\right)B^{\top}\left(t\right)J_{X}^{*}\left(X\left(t\right),t\right)\label{eq:lqr_ctrlr}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Substitute Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lqr_ctrlr"
+
+\end_inset
+
+ into Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lqr_hjb"
+
+\end_inset
+
+ (the arguments of the matrices will be dropped from here on due to space
+ constraints)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+\mathscr{H}\left(X\left(t\right),U\left(t\right),J_{X}^{*},t\right)= & \frac{1}{2}X^{\top}QX+\frac{1}{2}J_{X}^{*\top}BR^{-1}B^{\top}J_{X}^{*}\\
+ & +J_{t}^{*}AX-J_{X}^{*\top}BR^{-1}B^{\top}J_{X}^{*}\\
+= & \frac{1}{2}X^{\top}QX-\frac{1}{2}J_{X}^{*\top}BR^{-1}B^{\top}J_{X}^{*}-J_{t}^{*\top}AX
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The Hamilton-Jacobi-Bellman equation becomes
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+0= & J_{t}^{*}+\frac{1}{2}X^{\top}QX-\frac{1}{2}J_{X}^{*\top}BR^{-1}B^{\top}J_{X}^{*}-J_{t}^{*\top}AX\label{eq:lqr_hjb_final}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The boundary condition
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+J_{X}^{*}\left(X\left(t_{f}\right),t_{f}\right)= & \frac{1}{2}X^{\top}\left(t_{f}\right)HX\left(t_{f}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Guess a quadratic solution
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+J_{X}^{*}\left(X\left(t\right),t\right)= & \frac{1}{2}X^{\top}KX
+\end{align*}
+
+\end_inset
+
+ where 
+\begin_inset Formula $K$
+\end_inset
+
+ is a real symmetric positive-definite matrix
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Substitute our guess into the HJB equation, Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lqr_hjb_final"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+0= & \frac{1}{2}X^{\top}\dot{K}X+\frac{1}{2}X^{\top}QX-\frac{1}{2}X^{\top}KBR^{-1}B^{\top}KX+X^{\top}KAX\label{eq:lqr_hjb_subbed}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Use the substitution of 
+\begin_inset Formula $KA=\frac{1}{2}\left[KA+\left(KA\right)^{\top}\right]+\frac{1}{2}\left[KA-\left(KA\right)^{\top}\right]$
+\end_inset
+
+, the property that 
+\begin_inset Formula $\left(CD\right)^{\top}=D^{\top}C^{\top}$
+\end_inset
+
+, and the fact that the transpose of a scalar is the scalar to show that
+ only the symmetric part of 
+\begin_inset Formula $KA$
+\end_inset
+
+ contributes to Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lqr_hjb_subbed"
+
+\end_inset
+
+ to get 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\[
+0=\frac{1}{2}X^{\top}\dot{K}X+\frac{1}{2}X^{\top}QX-\frac{1}{2}X^{\top}KBR^{-1}B^{\top}KX+\frac{1}{2}X^{\top}KAX+\frac{1}{2}X^{\top}A^{\top}KX
+\]
+
+\end_inset
+
+ which holds for 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Removing all 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\boxed{0=\dot{K}+Q-KBR^{-1}B^{\top}K+KA+A^{\top}K}$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+With the boundary condition
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\boxed{K\left(t_{f}\right)=H}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

@@ -15,14 +15,8 @@ R = 1;
 X0 = [0, 0, 0, 0]';
 period = [0, 10];
 
+% ode45 requires that a function be passed as an input
 [t1, X] = ode45(@(t, K)riccati(t, K, A, B, Q, R), period, X0);
 
-% [m, n] = size(X);
-% XX = mat2cell(X, ones(m,1), n);
-% fh_reshape = @(x)reshape(x,size(A));
-% XX = cellfun(fh_reshape,XX,'UniformOutput',false);
-% 
-% figure;
-% hold on;
-% cellfun(@plot, XX);
-% legend
+plot(t1, X)
+legend('k1', 'k2', 'k3', 'k4')
