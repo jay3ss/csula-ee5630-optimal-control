@@ -320,8 +320,8 @@ J_{x}^{*}= & k(t)\,x(t)
 \begin{align}
 0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber\\
 =\, & J_{t}^{*}+\frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x\nonumber\\
-=\, & \frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber\\
-= & \,\frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber\\
+=\, & \frac{1}{2}\dot{k}\,x^{2}+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber\\
+= & \,\frac{1}{2}\dot{k}\,x^{2}+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber\\
 = & \,\dot{k}+\frac{1}{2}-k^{2}-20k\label{eq:question2_ric_final}
 \end{align}
 
@@ -335,7 +335,7 @@ Using Wolfram Alpha and taking the natural log (
 \begin_inset Formula $\ln$
 \end_inset
 
-) of the Equation 
+) of Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:question2_ric_final"
@@ -449,8 +449,8 @@ Now, find
 \begin_layout Standard
 This system is not LQR problem.
  Therefore, the optimal control trajectory cannot automatically be assumed
- to be 
-\begin_inset Formula $u^{*}(t)=-k(t)\,x(t)$
+ to be quadratic in 
+\begin_inset Formula $x$
 \end_inset
 
 .
@@ -459,13 +459,21 @@ This system is not LQR problem.
 \emph on
 is
 \emph default
- quadratic 
+ quadratic in 
+\begin_inset Formula $x$
+\end_inset
+
+, 
 \begin_inset Formula $J(x(1),1)=x^{2}(1)$
 \end_inset
 
 .
  This means that it is safe to assume that throughout the process the cost
- is quadratic.
+ is quadratic in 
+\begin_inset Formula $x$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -483,9 +491,9 @@ J_{x}^{*}= & k(t)\,x(t)
 \begin_layout Enumerate
 \begin_inset Formula 
 \begin{align*}
-\mathscr{H}^{*}= & \frac{1}{4}x^{2}+\frac{1}{2}(-J_{x}^{*})^{2}+J_{x}^{*}(-10x-J_{x}^{*})\\
-= & \frac{1}{4}x^{2}+\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x-J_{x}^{*2}\\
-= & \frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x
+\mathscr{H}^{*}= & x^{2}\left(-\frac{J_{x}}{2x^{2}}\right)^{2}+J_{x}^{*}\left(-\frac{J_{x}}{2x^{2}}\right)\\
+= & J_{x}^{*}{}^{2}-\frac{1}{2}J_{x}^{*2}\\
+= & \frac{1}{2}J_{x}^{*2}
 \end{align*}
 
 \end_inset
@@ -497,10 +505,10 @@ J_{x}^{*}= & k(t)\,x(t)
 \begin_inset Formula 
 \begin{align}
 0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber\\
-=\, & J_{t}^{*}+\frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x\nonumber\\
-=\, & \frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber\\
-= & \,\frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber\\
-= & \,\dot{k}+\frac{1}{2}-k^{2}-20k\label{eq:question3_ric_final}
+=\, & J_{t}^{*}+\frac{1}{2}J_{x}^{*2}\nonumber\\
+=\, & \frac{1}{2}\dot{k}\,x^{2}+\frac{1}{2}\left(k\,x\right)^{2}\nonumber\\
+= & \,\frac{1}{2}\dot{k}\,x^{2}+\frac{1}{2}k^{2}\,x^{2}\nonumber\\
+= & \,\dot{k}\,+k^{2}\label{eq:question3_ric_final}
 \end{align}
 
 \end_inset
@@ -509,11 +517,7 @@ J_{x}^{*}= & k(t)\,x(t)
 \end_layout
 
 \begin_layout Enumerate
-Using Wolfram Alpha and taking the natural log (
-\begin_inset Formula $\ln$
-\end_inset
-
-) of the Equation 
+Solving Equation 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:question3_ric_final"
@@ -523,7 +527,7 @@ reference "eq:question3_ric_final"
  yields
 \begin_inset Formula 
 \[
-\boxed{t+\alpha=\frac{1}{\sqrt{402}}\ln\left[\frac{2k(t)+20-\sqrt{402}}{2k(t)+20+\sqrt{402}}\right],\qquad\alpha\inℝ}
+\boxed{k\left(t\right)=\frac{1}{t+\alpha},\qquad\alpha\inℝ}
 \]
 
 \end_inset
@@ -695,8 +699,56 @@ Plot the trajectories of states
 Solution
 \end_layout
 
+\begin_layout Subsubsection*
+a)
+\end_layout
+
 \begin_layout Standard
-bbb
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{cc}
+0 & 1\\
+-1 & -2
+\end{array}\right],\quad B=\left[\begin{array}{c}
+0\\
+1
+\end{array}\right],\quad Q=\left[\begin{array}{cc}
+1 & 0\\
+0 & 2
+\end{array}\right],\quad R=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+b)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "code/Question4.m"
+lstparams "caption={Script to solve the Riccati equation using the ODE45 solver},label={q4_matlab_script}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename question4kplot.eps
+	scale 40
+	rotateOrigin center
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
