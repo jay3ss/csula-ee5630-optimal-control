@@ -129,6 +129,60 @@ Find
  for the given system.
 \end_layout
 
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathscr{H}= & \,g+J_{X}^{*\top}[a]\\
+= & \,q_{1}x_{1}^{2}+q_{2}x_{2}^{2}+u^{2}+\left[\begin{array}{cc}
+J_{x_{1}} & J_{x_{2}}\end{array}\right]\left[\begin{array}{c}
+x_{2}\\
+-x_{1}+x_{2}+u
+\end{array}\right]\\
+= & \,\frac{1}{2}(q_{1}x_{1}^{2}+q_{2}x_{2}^{2}+u^{2})+J_{x_{1}}x_{2}+J_{x_{2}}(-x_{1}+x_{2}+u)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, find 
+\begin_inset Formula $\frac{\partial\mathscr{H}}{\partial u}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\mathscr{H}}{\partial u}= & \,u^{*}+J_{x_{2}}\\
+= & \,0\\
+\frac{\partial^{2}\mathscr{H}}{\partial u^{2}}= & 1>0\;\therefore\text{minimum}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, the optimal control trajectory is 
+\begin_inset Formula $\boxed{u^{*}(t)=-J_{x_{2}}^{*}(x(t),t)}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section*
 Question 2
 \end_layout
@@ -176,6 +230,130 @@ The admissible state and control trajectories are not constrained by any
 \end_layout
 
 \begin_layout Section*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathscr{H}= & \,g+J_{X}^{*\top}[a]\\
+= & \,(\frac{1}{4}x^{2}+\frac{1}{2}u^{2})+J_{x}(-10x+u)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, find 
+\begin_inset Formula $\frac{\partial\mathscr{H}}{\partial u}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\mathscr{H}}{\partial u}= & \,u^{*}+J_{x}\\
+= & \,0\\
+\,u^{*}= & -J_{x}\\
+\frac{\partial^{2}\mathscr{H}}{\partial u^{2}}= & 1>0\;\therefore\text{minimum}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This system is Linear, Quadratic, and a Regulator (LQR) problem.
+ Therefore, the optimal control trajectory is 
+\begin_inset Formula $\boxed{u^{*}(t)=-k(t)\,x(t)}$
+\end_inset
+
+.
+ The minimum cost, 
+\begin_inset Formula $J^{*}$
+\end_inset
+
+, of an LQR problem is given by 
+\begin_inset Formula $J^{*}=\frac{1}{2}k(t)\,x^{2}(t)$
+\end_inset
+
+ and the solution to the Hamilton-Jacobi-Bellman of an LQR problem can be
+ found in the following manner:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+J_{t}^{*}= & \frac{1}{2}\dot{k}(t)\,x(t)\\
+J_{x}^{*}= & k(t)\,x(t)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+\mathscr{H}^{*}= & \frac{1}{4}x^{2}+\frac{1}{2}(-J_{x}^{*})^{2}+J_{x}^{*}(-10x-J_{x}^{*})\\
+= & \frac{1}{4}x^{2}+\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x-J_{x}^{*2}\\
+= & \frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber\\
+=\, & J_{t}^{*}+\frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x\nonumber\\
+=\, & \frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber\\
+= & \,\frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber\\
+= & \,\dot{k}+\frac{1}{2}-k^{2}-20k\label{eq:question2_ric_final}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Using Wolfram Alpha and taking the natural log (
+\begin_inset Formula $\ln$
+\end_inset
+
+) of the Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:question2_ric_final"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\[
+\boxed{t+\alpha=\frac{1}{\sqrt{402}}\ln\left[\frac{2k(t)+20-\sqrt{402}}{2k(t)+20+\sqrt{402}}\right],\qquad\alpha\inℝ}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
 Question 3
 \end_layout
 
@@ -203,7 +381,7 @@ J=x^{2}(1)+\int_{0}^{1}[x(t)u(t)]^{2}dt;
 
 \end_inset
 
- Find the optimal feedback solution by solving the corresponding HJB equation.
+Find the optimal feedback solution by solving the corresponding HJB equation.
  [Hint: First, find the HJB partial differential equation in terms of 
 \begin_inset Formula $J_{X}$
 \end_inset
@@ -224,6 +402,133 @@ J=x^{2}(1)+\int_{0}^{1}[x(t)u(t)]^{2}dt;
 \end_inset
 
  to get the feedback solution.]
+\end_layout
+
+\begin_layout Section*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathscr{H}= & \,g+J_{X}^{*\top}[a]\\
+= & \,x^{2}u^{2}+J_{x}x\,u
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, find 
+\begin_inset Formula $\frac{\partial\mathscr{H}}{\partial u}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\mathscr{H}}{\partial u}= & \,2x^{2}u^{*}+J_{x}x\\
+= & \,0\\
+\,u^{*}= & -\frac{J_{x}}{2x^{2}}\\
+\frac{\partial^{2}\mathscr{H}}{\partial u^{2}}= & 2x^{2}>0\;\therefore\text{minimum}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This system is not LQR problem.
+ Therefore, the optimal control trajectory cannot automatically be assumed
+ to be 
+\begin_inset Formula $u^{*}(t)=-k(t)\,x(t)$
+\end_inset
+
+.
+ However, by looking at the initial conditions we can see that the final
+ cost 
+\emph on
+is
+\emph default
+ quadratic 
+\begin_inset Formula $J(x(1),1)=x^{2}(1)$
+\end_inset
+
+.
+ This means that it is safe to assume that throughout the process the cost
+ is quadratic.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+J_{t}^{*}= & \frac{1}{2}\dot{k}(t)\,x(t)\\
+J_{x}^{*}= & k(t)\,x(t)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+\mathscr{H}^{*}= & \frac{1}{4}x^{2}+\frac{1}{2}(-J_{x}^{*})^{2}+J_{x}^{*}(-10x-J_{x}^{*})\\
+= & \frac{1}{4}x^{2}+\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x-J_{x}^{*2}\\
+= & \frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align}
+0=\, & J_{t}^{*}+\mathscr{H}^{*}\nonumber\\
+=\, & J_{t}^{*}+\frac{1}{4}x^{2}-\frac{1}{2}J_{x}^{*}{}^{2}-10J_{x}^{*}x\nonumber\\
+=\, & \frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}(kx)^{2}-10(kx)x\nonumber\\
+= & \,\frac{1}{2}\dot{k}\,x+\frac{1}{4}x^{2}-\frac{1}{2}k^{2}x{}^{2}-10kx^{2}\nonumber\\
+= & \,\dot{k}+\frac{1}{2}-k^{2}-20k\label{eq:question3_ric_final}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Using Wolfram Alpha and taking the natural log (
+\begin_inset Formula $\ln$
+\end_inset
+
+) of the Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:question3_ric_final"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\[
+\boxed{t+\alpha=\frac{1}{\sqrt{402}}\ln\left[\frac{2k(t)+20-\sqrt{402}}{2k(t)+20+\sqrt{402}}\right],\qquad\alpha\inℝ}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*
@@ -384,6 +689,14 @@ Plot the trajectories of states
 \end_inset
 
 )
+\end_layout
+
+\begin_layout Section*
+Solution
+\end_layout
+
+\begin_layout Standard
+bbb
 \end_layout
 
 \begin_layout Section*
@@ -571,7 +884,7 @@ Expand
 
 \begin_deeper
 \begin_layout Enumerate
-\paragraph_spacing onehalf
+\paragraph_spacing double
 \noindent
 
 \family roman
@@ -588,13 +901,13 @@ Expand
 \begin_inset Formula 
 \begin{align*}
 J^{*}(X(t),t) & =\underset{\underset{t\leq\tau\leq t_{f}}{U(\tau)}}{\min}\{{\displaystyle \int_{t}^{t+\Delta t}}g\,d\tau+J^{*}(X(t),\,t)+[\frac{\partial J^{*}}{\partial t}(X(t),t)]\Delta t\\
- & +[\frac{\partial J^{*}}{\partial X}(X(t),t)]^{T}[X(t+\Delta t)-X(t)]+\mathcal{O}\}
+ & +[\frac{\partial J^{*}}{\partial X}(X(t),t)]^{T}[X(t+\Delta t)-X(t)]+\mathcal{O}(\Delta t)\}
 \end{align*}
 
 \end_inset
 
 where 
-\begin_inset Formula $\mathcal{O}$
+\begin_inset Formula $\mathcal{O}(\Delta t)$
 \end_inset
 
  is higher order terms.
@@ -614,8 +927,8 @@ For small
 \begin_inset Formula 
 \begin{align*}
 J^{*}(X(t),t)=\underset{U(t)}{\min} & \{g(X(t),U(t),t)\Delta t+J^{*}(X(t),t)\\
- & +J^{*}(X(t),t)\Delta t+J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\Delta t\\
- & +o(\Delta t)\}
+ & +J_{t}^{*}(X(t),t)\Delta t+J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\Delta t\\
+ & +\mathcal{O}(\Delta t)\}
 \end{align*}
 
 \end_inset
@@ -624,6 +937,86 @@ J^{*}(X(t),t)=\underset{U(t)}{\min} & \{g(X(t),U(t),t)\Delta t+J^{*}(X(t),t)\\
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+Remove 
+\begin_inset Formula $J^{*}(X(t),t)$
+\end_inset
+
+ and 
+\begin_inset Formula $J_{t}^{*}(X(t),t)$
+\end_inset
+
+ terms (they don't depend on 
+\begin_inset Formula $U(t)$
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+0= & J_{t}^{*}(X(t),t)\Delta t+\underset{U(t)}{\min}\{g(X(t),U(t),t)\Delta t+J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\Delta t+\mathcal{O}(\Delta t)\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Divide by 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ and let 
+\begin_inset Formula $\Delta t\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+0= & J_{t}^{*}(X(t),t)+\underset{U(t)}{\min}\{g(X(t),U(t),t)+J_{X}^{*\top}(X(t),t)[a(X(t),U(t),t)]\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Which can be shortened to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0=J_{t}^{*}+\underset{U(t)}{\min}\{g+J_{X}^{*\top}[a]\}
+\]
+
+\end_inset
+
+or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boxed{0=J_{t}^{*}+\mathscr{H}^{*}}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Question 6
 \end_layout
@@ -631,6 +1024,14 @@ Question 6
 \begin_layout Standard
 Write a short note on LQR problem and derive the Riccati equation for LQR
  problem.
+\end_layout
+
+\begin_layout Section*
+Solution
+\end_layout
+
+\begin_layout Standard
+bbb
 \end_layout
 
 \end_body
