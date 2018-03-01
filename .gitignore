@@ -233,3 +233,6 @@ TSWLatexianTemp*
 
 # ignore .ini files set by gedit
 *.ini
+
+# ignore Matlab autosave files
+*.asv
