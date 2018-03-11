@@ -30,7 +30,8 @@ regard to the state resulting from the first decision.
 \end{displayquote}
 
 Figure \ref{fig:optimal_paths} shows a multistage decision process. The first
-decision leads from \textit{a} to \textit{b} with a cost of $J_{ab}$.
+decision leads from \textit{a} to \textit{b} with a cost of $J_{ab}$ and the
+remaining decisions from $b$ to $e$ yield cost $J_{be}$.
 
 \begin{figure}[h]
     \begin{center}
@@ -43,6 +44,18 @@ decision leads from \textit{a} to \textit{b} with a cost of $J_{ab}$.
         \label{fig:optimal_paths}
     \end{center}
 \end{figure}
+
+\noindent The total cost from $a$ to $e$ is the sum of the costs, and if the
+cost is the minimum then the minimum cost is given in Equation
+\ref{eq:bellman_opt_path_cost}. If the path $a$-$b$-$e$ is an optimal path from
+$a$ to $e$, then by the Prinicple of Optimality the path $b$-$e$ is also
+optimal. A proof by contradiction is given on pg. 54 of
+\cite{bellman2015applied}.
+
+
+\begin{equation} \label{eq:bellman_opt_path_cost}
+  J_{ae}^* = J_{ab} + J_{be}
+\end{equation}
 
 \newpage
 \bibliography{bib}
