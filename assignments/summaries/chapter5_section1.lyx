@@ -224,8 +224,29 @@ augmented
 \end_inset
 
 ) and using ideas from Chapter 4 (variationals and Lagrange multipliers).
- At the end of some mathematical gymnastics and manipulation of Equation
- 
+ We also modify the Hamiltonian, 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+, to include 
+\begin_inset Formula $g_{a}$
+\end_inset
+
+.
+ This is given below 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{H}\left(\mathbf{x}\left(t\right),\mathbf{u}\left(t\right),\mathbf{p}\left(t\right),t\right)\triangleq g\left(\mathbf{x}\left(t\right),\mathbf{u}\left(t\right),t\right)+\mathbf{p}\left(t\right)^{T}\left[\mathbf{a}\left(\mathbf{x}\left(t\right),\mathbf{u}\left(t\right),t\right)\right].\label{eq:augmented-hamiltonian}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At the end of some mathematical gymnastics and manipulation of both equations
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:system-equation"
@@ -235,7 +256,7 @@ noprefix "false"
 
 \end_inset
 
- using the calculus of variations and Lagrange multipliers, we arrive at
+, using the calculus of variations and Lagrange multipliers, we arrive at
  the necessary conditions of optimality given in Equations 
 \begin_inset CommandInset ref
 LatexCommand ref
