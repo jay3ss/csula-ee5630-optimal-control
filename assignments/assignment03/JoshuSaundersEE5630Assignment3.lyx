@@ -582,7 +582,7 @@ The dynamics of a system are given as:
 \begin_inset Formula 
 \begin{equation}
 \begin{aligned}\dot{x}_{1}\left(t\right)=\, & x_{2}\left(t\right)\\
-\dot{x}_{2}\left(t\right)=\, & \text{−}x_{2}\left(t\right)+u\left(t\right)
+\dot{x}_{2}\left(t\right)=\, & -x_{2}\left(t\right)+u\left(t\right)
 \end{aligned}
 \label{eq:q6-system}
 \end{equation}
@@ -734,17 +734,22 @@ Question 7
 The dynamics of a system are given as: 
 \begin_inset Formula 
 \[
-\begin{aligned}\dot{x}_{1}\left(t\right)=\, & x_{2}\left(t\right)\\
-\dot{x}_{2}\left(t\right)=\, & \text{−}x_{2}\left(t\right)+u\left(t\right)
+\begin{aligned}\dot{x}_{1}\left(t\right)=\, & -2\left[x_{1}\left(t\right)+0.25\right]+\left[x_{2}\left(t\right)+5\right]\text{exp}\left[\frac{25x_{1}\left(t\right)}{x_{1}\left(t\right)+2}\right]-\left[x_{1}\left(t\right)+0.25\right]u\left(t\right)\\
+\dot{x}_{2}\left(t\right)=\, & 0.5-x_{2}\left(t\right)-\left[x_{2}\left(t\right)+5\right]\text{exp}\left[\frac{25x_{1}\left(t\right)}{x_{1}\left(t\right)+2}\right]
 \end{aligned}
 \]
 
 \end_inset
 
-and the cost function to be minimized is
+with initial conditions 
+\begin_inset Formula $\boldsymbol{x}(0)=\left[\begin{array}{cc}
+0.05 & 0\end{array}\right]^{T}$
+\end_inset
+
+ and the cost function to be minimized is
 \begin_inset Formula 
 \[
-J=\frac{1}{2}\int_{0}^{2}u^{2}\left(t\right)dt
+J=\int_{0}^{0.78}\left[x_{1}^{2}\left(t\right)+x_{2}^{2}\left(t\right)+0.1u^{2}\left(t\right)\right]dt
 \]
 
 \end_inset
@@ -765,14 +770,21 @@ Optimal feedback solution is to be found by using Pontryagin’s Minimization
 .
 \end_layout
 
-\begin_layout Enumerate
-Find the necessary conditions that must be satisfied.
- (Obtain state equations and co-state equations)
+\begin_layout Standard
+Using the state and co-state equatinos obtained in Example 6.2-2 (Kirk):
 \end_layout
 
 \begin_layout Enumerate
-Try to solve analytically using the necessary conditions and boundary values.
- 
+Solve this boundary value problem using the steepest descent algorithm in
+ MATLAB.
+\end_layout
+
+\begin_layout Enumerate
+Solve this boundary value problem using the MATLAB function 
+\emph on
+bvp4c
+\emph default
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -782,8 +794,7 @@ Develop a MATLAB code to solve the new ODE system symbolically using syms
 \end_layout
 
 \begin_layout Enumerate
-Compare the results obtained in part (b) and (c) by plotting relevant state
- trajectories.
+Which method do you like better and why?
 \end_layout
 
 \begin_layout Subsection*
