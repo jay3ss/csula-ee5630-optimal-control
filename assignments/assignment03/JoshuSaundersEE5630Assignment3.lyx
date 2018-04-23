@@ -31,6 +31,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement h
 \paperfontsize default
 \spacing single
 \use_hyperref true
@@ -478,9 +479,41 @@ Let
 \end_layout
 
 \begin_layout Standard
+Because 
+\begin_inset Formula $\mathcal{H}\left(u^{*}\right)\leq\mathcal{H}\left(u\right)$
+\end_inset
 
-\series bold
-The preceding equations don't 
+, we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}\mathcal{H}\left(u^{*}\right)\leq & \mathcal{H}\left(u\right)\\
+1+p_{1}^{*}x_{2}^{*}+p_{2}^{*}u^{*}\leq & 1+p_{1}^{*}x_{2}^{*}+p_{2}^{*}u\\
+p_{2}^{*}u^{*}\leq & p_{2}^{*}u
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which shows that 
+\begin_inset Formula 
+\[
+u\left(t\right)=\begin{cases}
+1 & \text{if }p_{2}^{*}>1\\
+-1 & \text{if }p_{2}^{*}<-1\\
+p_{2}^{*} & \text{otherwise}
+\end{cases}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -712,15 +745,56 @@ p_{2}^{*}= & \,-7.289\left[1-e^{t}\right]-6.103e^{t}
 
 
 \series bold
-c)
+d)
 \end_layout
 
 \begin_layout Standard
-asdf
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename asgn3_q6.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Plot of state trajectories and control action
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
 \end_inset
 
 
@@ -808,7 +882,36 @@ If I were to go purely off of lines of code then I would use the built-in
 bvp4c
 \emph default
  function that's available in MATLAB.
- 
+ It also happens that 
+\emph on
+bvp4c
+\emph default
+ has a lower final cost of approximately 0.009599 compared to gradient descent's
+ cost of 0.028196 which is almost three times larger than 
+\emph on
+bvp4c
+\emph default
+, as shown in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:cost-of-gradient"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:cost-of-bvp4c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -821,7 +924,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename eg2_descent.jpg
-	scale 20
+	scale 25
 
 \end_inset
 
@@ -833,6 +936,13 @@ status open
 
 \begin_layout Plain Layout
 Cost of gradient descent
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:cost-of-gradient"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -841,6 +951,49 @@ Cost of gradient descent
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename eg1b.jpg
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cost of MATLAB function 
+\emph on
+bvp4c
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:cost-of-bvp4c"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
