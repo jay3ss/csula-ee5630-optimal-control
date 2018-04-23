@@ -1,0 +1,814 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass paper
+\begin_preamble
+\renewcommand{\labelenumi}{\alph{enumi})}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Assignment 3 - EE 5630"
+\pdf_author "Joshua Saunders"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.6in
+\topmargin 0.7in
+\rightmargin 0.6in
+\bottommargin 0.6in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment 3 - EE5630
+\end_layout
+
+\begin_layout Author
+Joshua Saunders
+\end_layout
+
+\begin_layout Standard
+04/16/2018
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 1
+\end_layout
+
+\begin_layout Standard
+Find the extremal for the following functional
+\begin_inset Formula 
+\[
+J=\int_{0}^{1}[x^{2}(t)+\dot{x}^{2}(t)]dt;\qquad x(0)=0;x(1)=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $g=x^{2}(t)+\dot{x}^{2}(t)$
+\end_inset
+
+.
+ To find the extremal, we'll use the Euler equation given below in Equation
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:euler-equation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial g}{\partial x}-\frac{d}{dt}\frac{\partial g}{\partial\dot{x}}=0\label{eq:euler-equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial g}{\partial x}=\,2x\left(t\right),\qquad\frac{d}{dt}\frac{\partial g}{\partial\dot{x}}=\,2\ddot{x}\left(t\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}\frac{\partial g}{\partial x}-\frac{d}{dt}\frac{\partial g}{\partial\dot{x}}= & 0\\
+2x\left(t\right)-2\ddot{x}\left(t\right)= & 0\\
+x\left(t\right)= & \ddot{x}\left(t\right)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's make a guess as to what the solution could be and apply the
+\begin_inset Formula 
+\[
+\begin{aligned}x\left(t\right)= & Ae^{t}+Be^{-t}\\
+x\left(0\right)= & A+B=0\\
+x\left(1\right)= & Ae+Be^{-1}=1
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solving the system of equations given by 
+\begin_inset Formula $x\left(0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $x\left(1\right)$
+\end_inset
+
+ we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}A= & \frac{1}{1+e}\\
+B= & \frac{e}{1+e}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which gives the extremal as
+\begin_inset Formula 
+\[
+\boxed{x\left(t\right)=\frac{1}{1+e}\left[e^{t}+e^{-t+1}\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 2
+\end_layout
+
+\begin_layout Standard
+Find the extremal for the following functional: 
+\begin_inset Formula 
+\[
+J=\int_{0}^{1}[x\left(t\right)+\dot{x}\left(t\right)+\frac{1}{2}\dot{x}\left(t\right)+x\left(t\right)\dot{x}\left(t\right)]dt;\qquad x\left(0\right)=\frac{1}{2};\;x\left(1\right)=\text{free}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $g=x\left(t\right)+\dot{x}\left(t\right)+\frac{1}{2}\dot{x}\left(t\right)+x\left(t\right)\dot{x}\left(t\right)$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+
+\series medium
+\begin_inset Formula 
+\[
+\frac{\partial g}{\partial x}=1+\dot{x},\qquad\frac{\partial g}{\partial\dot{x}}=1+\dot{x}+x\Rightarrow\frac{d}{dt}\frac{\partial g}{\partial\dot{x}}=\ddot{x}+\dot{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}\frac{\partial g}{\partial x}-\frac{d}{dt}\frac{\partial g}{\partial\dot{x}}= & \,0\\
+1+\dot{x}-\left(\ddot{x}+\dot{x}\right)= & \,0\\
+\therefore\quad\ddot{x}= & \,1\\
+\therefore\quad x\left(t\right)= & \frac{1}{2}t^{2}+a\,t+b
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Applying the boundary conditions we get
+\begin_inset Formula 
+\[
+\begin{aligned}x\left(0\right)= & \,b=\,\frac{1}{2}\\
+\&\\
+\frac{\partial g}{\partial\dot{x}}\left(1\right)= & \,1+\left(1+a\right)+\left(\frac{1}{2}+a+b\right)=0\\
+= & \,1+\left(1+a\right)+\left(\frac{1}{2}+a+1\right)\\
+\therefore\quad a= & \,-\frac{3}{2}
+\end{aligned}
+\]
+
+\end_inset
+
+Which leaves the solution as
+\begin_inset Formula 
+\[
+\boxed{x\left(t\right)=\frac{1}{2}t^{2}-\frac{3}{2}t+\frac{1}{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 3
+\end_layout
+
+\begin_layout Standard
+Determine the necessary conditions that must be satisfied by the extremals
+ for the functional: 
+\begin_inset Formula 
+\[
+J\left(w\right)=\int_{t_{0}}^{t_{f}}[w_{3}^{2}\left(t\right)+5]dt
+\]
+
+\end_inset
+
+ and the differential constraints that must be satisfied are: 
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\dot{w}_{1}\left(t\right)= & \,w_{2}\left(t\right)\\
+\dot{w}_{2}\left(t\right)= & \,w_{3}\left(t\right)
+\end{aligned}
+\label{eq:q3-constraints}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $g_{a}=w_{3}^{2}+5+p_{1}\left[w_{2}-\dot{w}_{1}\right]+p_{2}\left(t\right)\left[w_{3}-\dot{w}_{2}\right]$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\begin{aligned}\frac{\partial g_{a}}{\partial w_{1}}= & \,0;\qquad\frac{\partial g_{a}}{\partial\dot{w_{1}}}=-p_{1}\Rightarrow\frac{d}{dt}\frac{\partial g_{a}}{\partial\dot{w_{1}}}=-\dot{p}_{1}\quad\therefore\,\dot{p}_{1}=\,0\\
+\frac{\partial g_{a}}{\partial w_{2}}= & \,p_{1};\qquad\frac{\partial g_{a}}{\partial\dot{w_{1}}}=-p_{2}\Rightarrow\frac{d}{dt}\frac{\partial g_{a}}{\partial\dot{w_{1}}}=-\dot{p}_{2}\quad\therefore\,p_{1}+\dot{p}_{2}=\,0\\
+\frac{\partial g_{a}}{\partial w_{2}}= & \,2w_{3}+p_{2};\qquad\frac{\partial g_{a}}{\partial\dot{w_{3}}}=0\Rightarrow\frac{d}{dt}\frac{\partial g_{a}}{\partial\dot{w_{3}}}=0\quad\therefore\,2w_{3}+p_{2}=\,0
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, the necessary conditions for optimality are
+\begin_inset Formula 
+\[
+\boxed{\begin{aligned}p_{1}^{*}\left(t\right)= & \,0\\
+p_{2}^{*}\left(t\right)= & -p_{1}^{*}\left(t\right)\\
+2w_{3}^{*}+p_{2}^{*}= & \,0\\
+\dot{w}_{1}^{*}\left(t\right)= & \,w_{2}^{*}\left(t\right)\\
+\dot{w}_{2}^{*}\left(t\right)= & \,w_{1}^{*}\left(t\right)
+\end{aligned}
+}
+\]
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 4
+\end_layout
+
+\begin_layout Standard
+Find the optimal control that transfers the system 
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\dot{x}_{1}\left(t\right)=\, & x_{2}\left(t\right)\\
+\dot{x}_{2}\left(t\right)=\, & u\left(t\right)
+\end{aligned}
+\label{eq:q4-system}
+\end{equation}
+
+\end_inset
+
+ from any initial state 
+\begin_inset Formula $\left(x_{0}\right)$
+\end_inset
+
+ to the origin in minimum time.
+ The constraint on the control is as follows: 
+\begin_inset Formula 
+\[
+−1≤u\left(t\right)≤+1
+\]
+
+\end_inset
+
+ (Note: This is a special class of 
+\series bold
+minimum time problem
+\series default
+ with linear stationary dynamics and linear regulator (control).
+ The solution of these type of problems is 
+\series bold
+Bang-Bang Control
+\series default
+ and can be obtained analytically! Bang-bang control arises in linear minimum-ti
+me problems with constrained input magnitude.
+ 1 The resulting optimal control for these problems needs only take on two
+ values, which are the extreme values of the control.)
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{H}=g+p\left(t\right)^{T}\left[a\right]=1+p_{1}x_{2}+p_{2}u$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}\boldsymbol{\dot{x}}^{*}=\frac{\partial\mathcal{H}}{\partial\boldsymbol{p}} & \Rightarrow\;\dot{x}_{1}^{*}=\frac{\partial\mathcal{H}}{\partial p_{1}}=x_{2}^{*};\qquad\dot{x}_{2}^{*}=\frac{\partial\mathcal{H}}{\partial p_{2}}=u^{*}\\
+\boldsymbol{\dot{p}}^{*}=-\frac{\partial\mathcal{H}}{\partial\boldsymbol{x}} & \Rightarrow\;\dot{p}_{1}^{*}=-\frac{\partial\mathcal{H}}{\partial x_{1}}=0;\qquad\dot{p}_{2}^{*}=\frac{\partial\mathcal{H}}{\partial x_{2}}=-\dot{p}_{1}^{*}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The preceding equations don't 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 5
+\end_layout
+
+\begin_layout Standard
+Find the optimal control that transfers the system 
+\begin_inset Formula 
+\[
+x\left(t\right)=u\left(t\right)
+\]
+
+\end_inset
+
+from any initial state 
+\begin_inset Formula $\left(x_{0}\right)$
+\end_inset
+
+ to the origin such that the following cost is minimized: 
+\begin_inset Formula 
+\[
+J(u)=\int_{0}^{t_{f}}\left|u\left(t\right)\right|dt
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $t_{f}$
+\end_inset
+
+ is free and the constraint on the control is as follows: 
+\begin_inset Formula 
+\[
+−1≤u(t)≤+1
+\]
+
+\end_inset
+
+(Note: This is a special class of 
+\series bold
+minimum fuel/control problem
+\series default
+ with linear stationary dynamics and linear regulator (control).
+ The solution of these type of problems is 
+\series bold
+Bang-Off-Bang Control
+\series default
+ and can be obtained analytically!)
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{H}=g+p\left(t\right)^{T}\left[a\right]=\left|u\right|+pu$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}p^{*}= & -\frac{\partial\mathcal{H}}{\partial x}=0\Rightarrow p^{*}=c\,\bigg|\,c\in\mathbb{R}\\
+x\left(t\right)=\, & x_{0}+\int_{0}^{t_{f}}u\left(t\right)\,dt\\
+x\left(0\right)= & x_{0}+\int_{0}^{t_{f}}u\left(t\right)\,dt=\,0\Rightarrow x_{0}=-\int_{0}^{t_{f}}u\left(t\right)\,dt
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+f
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 6
+\end_layout
+
+\begin_layout Standard
+The dynamics of a system are given as: 
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\dot{x}_{1}\left(t\right)=\, & x_{2}\left(t\right)\\
+\dot{x}_{2}\left(t\right)=\, & -x_{2}\left(t\right)+u\left(t\right)
+\end{aligned}
+\label{eq:q6-system}
+\end{equation}
+
+\end_inset
+
+and the cost function to be minimized is
+\begin_inset Formula 
+\[
+J=\frac{1}{2}\int_{0}^{2}u^{2}\left(t\right)dt
+\]
+
+\end_inset
+
+Optimal feedback solution is to be found by using Pontryagin’s Minimization
+ Principle.
+ Admissible states and controls are not bounded.
+ 
+\begin_inset Formula $X(0)=\left[\begin{array}{cc}
+0 & 0\end{array}\right]^{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $X(2)=\left[\begin{array}{cc}
+5 & 2\end{array}\right]^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Find the necessary conditions that must be satisfied.
+ (Obtain state equations and co-state equations)
+\end_layout
+
+\begin_layout Enumerate
+Try to solve analytically using the necessary conditions and boundary values.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Develop a MATLAB code to solve the new ODE system symbolically using syms
+ and dsolve functions.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Compare the results obtained in part (b) and (c) by plotting relevant state
+ trajectories.
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+a)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{H}=\frac{1}{2}u^{2}+p_{1}x_{2}+p_{2}\left(-x_{2}+u\right)$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}\dot{p}{}_{1}^{*}= & -\frac{\partial\mathcal{H}}{\partial x_{1}}=0;\quad\dot{p}_{1}^{*}=-\frac{\partial\mathcal{H}}{\partial x_{2}}=-p_{1}^{*}+p_{2}^{*}\\
+\frac{\partial\mathcal{H}}{\partial u}= & \,u^{*}+p_{2}^{*}=0\,\Rightarrow\,u^{*}=-p_{2}^{*}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which leads to 
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}x_{1}^{*}= & \,c_{1}+c_{2}\left[1-e^{t}\right]+c_{3}\left[-t-\frac{1}{2}e^{-t}+\frac{1}{2}e^{t}\right]+c_{4}\left[1-\frac{1}{2}e^{-t}-\frac{1}{2}e^{t}\right]\\
+x_{2}^{*}= & \,c_{2}e^{-t}+c_{3}\left[-1+\frac{1}{2}e^{-t}+\frac{1}{2}e^{t}\right]+c_{4}\left[\frac{1}{2}e^{-t}-\frac{1}{2}e^{t}\right]\\
+p_{1}^{*}= & \,c_{3}\\
+p_{2}^{*}= & \,c_{3}\left[1-e^{t}\right]+c_{4}e^{t}
+\end{aligned}
+\label{eq:q6-general-solution}
+\end{equation}
+
+\end_inset
+
+and the system of equations given in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:q6-general-solution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) we get the necessary conditions
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+b)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}x_{1}^{*}= & \,-6.103+7.289t+6.696e^{-t}-0.593e^{t}\\
+x_{2}^{*}= & \,7.289-6.696e^{-t}-0.593e^{t}\\
+p_{1}^{*}= & \,-7.289\\
+p_{2}^{*}= & \,-7.289\left[1-e^{t}\right]-6.103e^{t}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\series bold
+c)
+\end_layout
+
+\begin_layout Standard
+asdf
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 7
+\end_layout
+
+\begin_layout Standard
+The dynamics of a system are given as: 
+\begin_inset Formula 
+\[
+\begin{aligned}\dot{x}_{1}\left(t\right)=\, & -2\left[x_{1}\left(t\right)+0.25\right]+\left[x_{2}\left(t\right)+5\right]\text{exp}\left[\frac{25x_{1}\left(t\right)}{x_{1}\left(t\right)+2}\right]-\left[x_{1}\left(t\right)+0.25\right]u\left(t\right)\\
+\dot{x}_{2}\left(t\right)=\, & 0.5-x_{2}\left(t\right)-\left[x_{2}\left(t\right)+5\right]\text{exp}\left[\frac{25x_{1}\left(t\right)}{x_{1}\left(t\right)+2}\right]
+\end{aligned}
+\]
+
+\end_inset
+
+with initial conditions 
+\begin_inset Formula $\boldsymbol{x}(0)=\left[\begin{array}{cc}
+0.05 & 0\end{array}\right]^{T}$
+\end_inset
+
+ and the cost function to be minimized is
+\begin_inset Formula 
+\[
+J=\int_{0}^{0.78}\left[x_{1}^{2}\left(t\right)+x_{2}^{2}\left(t\right)+0.1u^{2}\left(t\right)\right]dt
+\]
+
+\end_inset
+
+Optimal feedback solution is to be found by using Pontryagin’s Minimization
+ Principle.
+ Admissible states and controls are not bounded.
+ 
+\begin_inset Formula $X(0)=\left[\begin{array}{cc}
+0 & 0\end{array}\right]^{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $X(2)=\left[\begin{array}{cc}
+5 & 2\end{array}\right]^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Using the state and co-state equatinos obtained in Example 6.2-2 (Kirk):
+\end_layout
+
+\begin_layout Enumerate
+Solve this boundary value problem using the steepest descent algorithm in
+ MATLAB.
+\end_layout
+
+\begin_layout Enumerate
+Solve this boundary value problem using the MATLAB function 
+\emph on
+bvp4c
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Which method do you like better and why?
+\end_layout
+
+\begin_layout Subsection*
+Solution
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+c)
+\end_layout
+
+\begin_layout Standard
+If I were to go purely off of lines of code then I would use the built-in
+ 
+\emph on
+bvp4c
+\emph default
+ function that's available in MATLAB.
+\end_layout
+
+\end_body
+\end_document
