@@ -788,12 +788,6 @@ bvp4c
 \end_layout
 
 \begin_layout Enumerate
-Develop a MATLAB code to solve the new ODE system symbolically using syms
- and dsolve functions.
- 
-\end_layout
-
-\begin_layout Enumerate
 Which method do you like better and why?
 \end_layout
 
@@ -802,30 +796,18 @@ Solution
 \end_layout
 
 \begin_layout Standard
-If we let 
-\begin_inset Formula $U\left(t\right)=-KX\left(t\right)$
-\end_inset
 
-, we arrive at
+\series bold
+c)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\begin{aligned}\dot{X}\left(t\right)= & AX\left(t\right)+BU\left(t\right)\\
-= & AX\left(t\right)+B\left(-KX\left(t\right)\right)\\
-= & AX\left(t\right)-BKX\left(t\right)\\
-= & \left(A-BK\right)X\left(t\right)
-\end{aligned}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-as;dlkf
+If I were to go purely off of lines of code then I would use the built-in
+ 
+\emph on
+bvp4c
+\emph default
+ function that's available in MATLAB.
 \end_layout
 
 \end_body
